@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html data-ng-app="camZone">
+<head>
+<title>Cam Zone</title>
+<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="img/favicon.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+<link href="Css/modern-business.css" rel="stylesheet" />
+<link href="Css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="Css/ratingNreview.css">
+<link rel="stylesheet" href="Css/jRating.jquery.css"> 
+<link rel="stylesheet" href="Css/comments.css"> 
+<link href="Css/bootstrap-cosmo.css" rel="stylesheet">
+<link href="Css/main.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="Css/style.css" />
+<link rel="stylesheet" type="text/css" href="easyrtc/easyrtc.css" />
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="font-size: 2em; color: #FFF" href="#"><span
+					class="glyphicon glyphicon-camera"></span>&nbsp;&nbsp;<b>Cam
+						Zone</b></a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a style="color: #FFF;">Products</a></li>
+					<li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#categories/Camera">Camera</a></li>
+            <li><a href="#categories/cameraAccesories">Camera Accessories</a></li>
+            
+          </ul>
+        </li>
+					<!--<li><a href="" style="color: #9954bb;">Discover U</a></li>-->
+					<li><a style="color: #FFF;" href="" onclick="callwebRtc()">Contact</a></li>
+					<li><a style="color: #FFF;" href="#cart"><i class="fa fa-shopping-cart fa-lg"></i> &nbsp;Cart</a></li>
+
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+	<!-- ng-view directive to tell AngularJS where to put the content pages which are inside views folder-->
+
+	<div style="margin-top: 25px">
+		<div class="col-md-8">
+			<div data-ng-view></div>
+		</div>
+		<div class="col-md-4">
+			<!-- Start : Code/ Placeholder for sign / sign up -->
+				<div id="signup/signin" class="text-center">
+					<p class="hidden" id="login" style="font-size: 1.3em;">
+						<a data-target="#register_modal" data-toggle="modal"
+							title="Registration" class="registerForm handCursor"><i
+							class="fa fa-sign-in">&nbsp;Sign-up</i></a>&nbsp;|&nbsp;<a
+							data-target="#login_modal" data-toggle="modal" class="handCursor"><i
+							class="fa fa-facebook">&nbsp;&nbsp;</i><i
+							class="fa fa-google-plus">&nbsp;&nbsp;<!-- <i
+							class="fa fa-twitter"></i>-->&nbsp;&nbsp;Sign-in</i></a>
+					</p>
+					<span class="hidden" id="loggedIn"><img
+						id="FBprofilepicture" width="25px" height="22px" />&nbsp;<label
+						id="user"></label>&nbsp | &nbsp<a id="logout" onClick="doLogout()"
+						href="">Logout</a> </span> <span class="hidden" id="GoogleloggedIn"><img
+						id="Gprofilepicture" width="25px" height="22px" />&nbsp;<label
+						id="Guser"></label>&nbsp | &nbsp<a id="Glogout"
+						onClick="doGoogleLogout()" href="">Logout</a> </span> <span
+						class="hidden" id="RloggedIn"><img id="Rprofilepicture"
+						width="25px" height="22px" />&nbsp;<label id="Ruser"></label>&nbsp | &nbsp<a
+						id="Rlogout" onClick="RLogout()" href="">Logout</a> </span>
+					<p></p>
+					<span class="hidden" id="LinkSocial">
+						<p>
+							<a id="Rlink" class="activateform  class="
+								handCursor"" 
+						data-target="#activate_modal"
+								data-toggle="modal" style="cursor: pointer">Link Social accounts</a>
+						</p>
+					</span>
+					<p>
+						<span class="hidden" id="fblinked"><img
+							src="images/fbicon.png" width="25px" height="18px" />&nbsp;&nbsp;<label
+							style="color: blue">Linked</label>&nbsp;<a id="logout"
+							onClick="deactivate()" style="cursor: pointer">| Unlink</a> </span>
+					</p>
+					<p>
+						<span class="hidden" id="Glinked"><img
+							src="images/gplus.png" width="25px" height="20px" />&nbsp;<label
+							style="color: blue">Linked</label>&nbsp;<a id="logout"
+							onClick="deactivate()" style="cursor: pointer">| Unlink</a></span>
+					</p>
+					<p>
+						<span class="hidden" id="error-msg"><label id="error"></label></span>
+					</p>
+				</div>
+				<div id="widgetContainer"></div>
+			</div>
+		
+		</div>
+		
+		
+	
+		<div id="login_modal" class="modal fade" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h3>Sign in to CamZone <span class="glyphicon glyphicon-camera"></span></h3>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-12">
+									<form role="form" id="loginForm">
+										<div class="form-group">
+											<input type="email"	data-validation="email" 
+											class="form-control" id="email" placeholder="Email">
+										</div>
+										<div class="form-group">
+											<input name="pass_confirmation"	id="pwd" type="password" placeholder="Password" 
+											class="form-control" data-validation="required">
+										</div>
+										&nbsp;&nbsp;&nbsp;
+										<button type="button" class="btn btn-primary form-control" id="submitbtn_login"
+										data-dismiss="modal">Done</button>
+									</form>
+									<br />
+									<span id="error-window"><label id="error-msg-login" class="register-error"></label></span>
+								</div>		
+							</div>
+						</div>
+						<div class="modal-footer"><em>Log in with: </em>
+							<a href="" onClick="doFBLogin();"> <img src="img/fbicon.png" width="45px" height="40px" style="margin-right: 15px"/> </a>
+							<!-- <a href="https://www.twitter.com" target="_blank"> <img src="img/twitter.png" width="45px" height="40px" style="margin-right: 15px"/> </a> -->
+							<a href="" onClick="Googlelogin()"> <img src="img/gplus.png" width="45px" height="40px" /> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="register_modal" class="modal fade" aria-hidden="true">
+				<div class="modal-dialog modal-md">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h3>
+								Sign up for CamZone <span class="glyphicon glyphicon-camera"></span>
+							</h3>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-12">
+									<form role="form" id="registerForm">
+										<div class="form-group">
+											<label for="email">Email address</label> <input type="email"
+												data-validation="email" class="form-control" id="reg_email"
+												name="email" placeholder="Enter email">
+										</div>
+										<div class="form-group">
+											<label for="pwd">Password</label> <input
+												name="pass_confirmation" id="pwd" type="password"
+												placeholder="Password" class="form-control"
+												data-validation="strength" data-validation-strength="2"
+												data-validation-error-msg="The password must be atleast 5 characters, with atleast one special character and a number">
+										</div>
+
+										<div class="form-group">
+											<label for="pwd1">Re-type Password</label> <input name="pass"
+												type="password" data-validation="confirmation"
+												class="form-control" placeholder="Re-type Password"
+												data-validation-error-msg="Passwords do not match">
+										</div>
+
+										<div class="form-group">
+											<label for="fname">First Name</label> <input
+												data-validation="length alphanumeric"
+												data-validation-length="2-30" type="text"
+												class="form-control" name="fname" id="fname"
+												placeholder="First Name">
+										</div>
+
+										<div class="form-group">
+											<label for="lname">Last Name</label> <input type="text"
+												name="lname" class="form-control" id="lname"
+												placeholder="Last Name">
+										</div>
+
+
+										<div class="form-group">
+											<label for="birthyear">Year of Birth</label> <select
+												class="form-control" id="birthyear" name="birthyear">
+
+											</select>
+										</div>
+										<script>
+											var temp = '';
+											for (i = 2015; i > 1884; i--) {
+												temp += "<option value="+i+">"
+														+ i + "</option>";
+
+											}
+											$('#birthyear').append(temp);
+										</script>
+
+
+										<div class="form-group">
+											<label for="gender">Gender</label> <select
+												class="form-control" id="gender" name="gender">
+												<option value="1">Male</option>
+												<option value="2">Female</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputFile">File input</label> <input
+												type="file" id="exampleInputFile" name="file"
+												onchange="readURL(this);" /> <img id="ImageFile" src="images/guest.png"
+												alt="your image" />
+										</div>
+
+										<button type="submit" class="btn btn-primary" id="sssubmitbtn"
+											value="Submit">Submit</button>
+										&nbsp;&nbsp;Already have an account? <a
+											style="cursor: pointer" data-target="#login_modal"
+											data-toggle="modal" data-dismiss="modal"> Click here</a>
+
+									</form>
+
+									<span id="error-window" class="hidden"><label
+										id="error-msg" class="register-error"></label></span>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<strong>Sign up with: </strong> <a href=""
+								onClick="doFBFormLogin();"> <img src="img/fbicon.png"
+								width="45px" height="40px" style="margin-right: 15px" />
+							<!-- </a> <a href="https://www.twitter.com" target="_blank"> <img
+								src="img/twitter.png" width="45px" height="40px"
+								style="margin-right: 15px" /> -->
+							</a> <a href="" onClick="doGooglelogin()"> <img
+								src="img/gplus.png" width="45px" height="40px" />
+							</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Start: Activate Fb / G+ from -->
+			<div class="modal fade" id="activate_modal">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h3><i class="fa fa-camera lg"></i>&nbsp;Link social accounts</h3>
+						</div>
+						<div class="modal-body">
+							<p>
+								<a href="" onclick="activateFB()" data-dismiss="modal"><i class="fa fa-facebook fa-5x"></i></a>
+							<!-- </p>
+							<br>	
+							<p> -->
+								<a href="" onclick="activateGoogle()" data-dismiss="modal"> <i class="fa fa-google-plus fa-5x pull-right"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Start: Activate Fb / G+ from -->
+			
+	<!-- Footer -->
+	<footer>
+		<div>
+			<div class="col-lg-12">
+			<p>
+				<hr>
+				<!--<a  id="webRtc" onclick="callwebRtc()" class="btn btn-primary pull-right">Contact Us <span class="glyphicon glyphicon-user"></span></a>-->
+				
+				&copy;&nbsp;<span class="glyphicon glyphicon-camera"></span><b>&nbsp;&nbsp;Cam
+					Zone 2015</b>
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+       <script>
+              $.widget.bridge('uitooltip', $.ui.tooltip);
+       </script>
+
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="https://code.angularjs.org/1.2.13/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-sanitize.js"></script>
+	<script src= "js/avpage_ctrl.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/widgets.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/jquery.popupWindow.js"></script>
+	<script type="text/javascript" src="/easyrtc/easyrtc.js"></script> 
+	<script type="text/javascript" src="js/ratingNreview.js"></script>
+	<script src="js/login.js"></script>
+	<script src= "js/jRating.jquery.js"></script>
+	<script src="js/gamification.js"></script>
+	<script type="text/javascript" src="js/notify.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
+	<script src="js/comments.js"></script>
+		<script>
+		$( "#widgetContainer, #beforeBody" ).sortable({
+             connectWith: "#widgetContainer",
+             handle: ".panel-heading",
+             /* cancel: ".portlet-toggle", */
+            /*  placeholder: "portlet-placeholder ui-corner-all" */
+           });
+	
+	function readURL(input) {
+		 if (input.files && input.files[0]) {
+		   var reader = new FileReader();
+		   reader.onload = function (e) {
+		     $('#ImageFile')
+		       .attr('src', e.target.result)
+		       .width(150)
+		       .height(80);
+		   };
+		   reader.readAsDataURL(input.files[0]);
+		 }
+		}
+	$("#exampleInputFile").change(function(){
+	   readURL(this);
+	});
+	
+	$.validate({
+		modules : 'location, date, security, file',
+		onModulesLoaded : function() {
+			$('#country').suggestCountry();
+		}
+	});
+	
+	
+	</script>
+
+
+</body>
+</html>
+

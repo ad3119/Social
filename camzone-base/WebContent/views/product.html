@@ -1,0 +1,213 @@
+
+<style>
+.parentimage { 
+ 	-webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+} 
+.parentimage:hover {
+     -moz-transform: scale(2); 
+    -webkit-transform: scale(2);
+   -o-transform: scale(2);
+    -ms-transform: scale(2); 
+    transform: scale(2); 
+} 
+.thumbnail p {
+	color: #000;
+  font-weight: 500;
+  
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  font-size: 13px;
+  -webkit-box-orient: vertical;
+  }
+.thumbnail {
+  min-height: 291px;
+  max-height: 291px;
+  overflow: auto;
+  cursor:pointer;
+}
+.thumbnail:hover {
+
+border: 2px solid grey
+}
+.thumbnail img {
+margin-top : 10px;
+min-height : 120px;
+width : 120px
+}
+</style>
+<!-- Page Heading/Breadcrumbs -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">{{product.productName}}</h1>
+				<ol class="breadcrumb">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#categories/{{product.category}}">{{product.category}}</a></li>
+					<li class="active">Item-Detail</li>
+				</ol>
+			</div>
+		</div>
+		
+		
+		<div class="col-md-6">
+		
+						<div class="item">
+							<img style ="width:250px" class="img-responsive parentimage" src="camera_images/{{product.id}}.png" alt="{{product.productName}}">
+						</div>
+		<!-- <div id="reactions"></div> -->
+				<!-- <div id="carousel-example-generic" class="carousel slide"
+					data-ride="carousel">
+					Indicators
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+					</ol>
+
+					Wrapper for slides
+					<div class="carousel-inner"
+						style="background: url('img/cambg1.JPG'); paddidata-ng-left: 100px; paddidata-ng-bottom: 20px;">
+						<div class="item active">
+							<img class="img-responsive" src="images/product/Nikon D5300.png" alt="">
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="images/product/nikon-1-d5300-1.png" alt="">
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="images/product/nikon-1-d5300-2.png" alt="">
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="images/product/nikon-1-d5300-3.png" alt="">
+						</div>
+					</div>
+
+					Controls
+					<a class="left carousel-control" data-target="#carousel-example-generic"
+						data-slide="prev"> <span
+						class="glyphicon glyphicon-chevron-left"></span>
+					</a> <a class="right carousel-control" data-target="#carousel-example-generic"
+						data-slide="next"> <span
+						class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div> -->
+			</div>
+			<div class="col-md-6">
+				
+				<!-- <p style="color: #FFD700; font-weight: bold; background-color: #333">
+					&nbsp;&nbsp;<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+						class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
+						class="fa fa-star-o"></i>&nbsp;&nbsp;1 Review(s)
+				</p> -->
+				<p style="text-align: justify">{{product.description}}</p>
+				<h4 ><b>Rating : </b>{{product.productRating}} / 5  <i style=" color: rgb(242, 214, 137);" class="fa fa-star"></i><span>&nbsp;&nbsp;{{product.totalNumberOfRatings}} &nbsp; Review(s)</span></h4>
+				<h3>
+					<b>Price: <i class="fa fa-inr"></i> {{product.price}}
+					</b>
+					
+				</h3>
+				Quantity:<p>&nbsp;</p><input style="width:40px" type="number" data-ng-model="quantity" min="0"/>
+				<a class="btn btn-primary" data-ng-click="addToCart(product)"><i class="fa fa-shoppidata-ng-cart lg"></i> Add to Cart</a>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<h3 ><b>Tech Specs</b></h3>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>Type</td>
+									<td>Single-lens reflex digital camera</td>
+								</tr>
+								<tr>
+									<td>Lens mount</td>
+									<td>Nikon F mount (with AF contacts)</td>
+								</tr>
+								<tr>
+									<td>Image sensor</td>
+									<td>23.5 x 15.6 mm CMOS sensor</td>
+								</tr>
+								<tr>
+									<td>Dust-reduction System</td>
+									<td>Image sensor cleaning, Image Dust Off reference data
+										(optional Capture NX 2 software required)</td>
+								</tr>
+	
+								<tr>
+									<td>Frame coverage</td>
+									<td>Approx. 95% horizontal and 95% vertical</td>
+								</tr>
+								<tr>
+									<td>Flash mode</td>
+									<td>Auto, auto with red-eye reduction, auto slow sync, auto
+										slow sync with red-eye reduction, fill-flash, red-eye
+										reduction, slow sync, slow sync with red-eye reduction,
+										rear-curtain with slow sync, rear-curtain sync, off</td>
+								</tr>
+						</table>
+				</div>
+			</div>
+			<div data-ng-hide="showRecommendations" class="col-lg-12 col-md-12">
+				<h4 class="page-header">
+					<b>Recommended Items</b>
+				</h4>
+			</div>
+			<div data-ng-hide="showRecommendations" class="row" >
+			<div  style= " margin-top: 90px;"class="col-md-1"><a  data-ng-click="prevPageRE()"  href=""><i class="fa fa-angle-left fa-5x"></i></a></div>
+				<div class="col-md-3 text-center" data-ng-repeat="product in recommendProduts | offset: currentPageRE*itemsPerPage |limitTo: itemsPerPage">	
+					<div class="thumbnail" data-ng-click="clickedProduct(product)" >
+						<img class="img-responsive portfolio-cannon" src="camera_images/{{product.id}}.png" alt="">
+						<div class="caption">
+							<p>{{product.productName}}</p>
+							<p>{{product.description}}</p>
+							<h2 class="bg-primary"><i class="fa fa-inr lg"></i>{{product.price}}</h2>
+						</div>
+					</div>
+				</div>
+				<div style= " margin-top: 90px;"class="col-md-1"><a  data-ng-click="nextPageRE()"  href=""><i class="fa fa-angle-right fa-5x"></i></a></div>
+			</div>
+			<div data-ng-hide="showproductsBH" class="col-lg-12 col-md-12">
+				<h4 class="page-header">
+					<b>Recommended Items Based on your Browsing Histroy</b>
+				</h4>
+			</div>
+			<div data-ng-hide="showproductsBH" class="row" >
+			<div  style= " margin-top: 90px;"class="col-md-1"><a  data-ng-click="prevPageBH()"  href=""><i class="fa fa-angle-left fa-5x"></i></a></div>
+				<div class="col-md-3 text-center" data-ng-repeat="product in recommendProdutsFromBH |  offset: currentPageBH*itemsPerPage |limitTo: itemsPerPage">
+					
+					<div class="thumbnail" data-ng-click="clickedProduct(product)" >
+					<img class="img-responsive portfolio-cannon" src="camera_images/{{product.productId}}.png" alt="">
+						<div class="caption">
+							<p>{{product.product}}</p>
+							<p>{{product.description}}</p>
+							<h2 class="bg-primary"><i class="fa fa-inr lg"></i>{{product.price}}</h2>
+						</div>
+					</div>
+				</div>
+				<div   style= " margin-top: 90px;"class="col-md-1"><a  data-ng-click="nextPageBH()"  href=""><i class="fa fa-angle-right fa-5x"></i></a></div>
+			</div>
+			<div data-ng-hide="showrecentlyViewed" class="col-lg-12 col-md-12">
+				<h4 class="page-header">
+					<b>Recently Viewed Items</b>
+				</h4>
+			</div>
+			<div data-ng-hide="showrecentlyViewed" class="row" > 
+				<div  style= " margin-top: 90px;"class="col-md-1"><a data-ng-class="prevPageDisabled()" data-ng-click="prevPage()"  href=""><i class="fa fa-angle-left fa-5x"></i></a></div>
+				<div class="col-md-3 text-center" data-ng-repeat="product in recentlyViewedProducts |  offset: currentPage*itemsPerPage |limitTo: itemsPerPage">
+					<div class="thumbnail" data-ng-click="clickedProduct(product)" >
+						<img class="img-responsive portfolio-cannon" src="camera_images/{{product.productId}}.png" alt="">
+						<div class="caption">
+							<p>{{product.product}}</p>
+							<p>{{product.description}}</p>
+							<h2 class="bg-primary"><i class="fa fa-inr lg"></i>{{product.price}}</h2>
+						</div>
+					</div>
+				</div>
+				<div   style= " margin-top: 90px;"class="col-md-1"><a data-ng-class="nextPageDisabled()" data-ng-click="nextPage()"  href=""><i class="fa fa-angle-right fa-5x"></i></a></div>
+			</div>
+	

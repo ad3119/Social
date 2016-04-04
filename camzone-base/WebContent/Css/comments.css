@@ -1,0 +1,449 @@
+.showCommentBox {
+    height: 300px;
+    /* width: 700px; */
+    position: relative;
+    /* margin-top: 30px; */
+}
+
+.sortMenu {
+	height: 50px;
+    /* width: 700px; */
+    position: relative;
+    margin-top: 10px;
+}
+.displayUserComments{
+	/* width: 700px; */
+    position: relative;
+	height: 100%;
+}
+
+.CommentValue {
+	position: relative;
+	height: auto;
+	top:0px;
+	left:40px;
+	width:700px;
+	text-align: left;
+    overflow:hidden;
+    text-overflow:ellipsis;	
+	display: table;
+    margin:0px;
+}
+
+.ActionOnComment {
+	position: relative;
+	height: 50px;
+	top:0px;
+	left:40px;
+	width:700px;
+	text-align: left;
+    overflow:hidden;
+    text-overflow:ellipsis;	
+	display: table;
+    margin:0px;
+}
+
+.postUserDetails {
+	position: relative;
+	height: 50px;
+	top:0px;
+	left:0px;
+	width:700px;
+	text-align: left;
+    overflow:hidden;
+    text-overflow:ellipsis;	
+	display: table;
+    margin:0px;
+}
+
+.ReplyValue {
+	position: relative;
+	height: auto;
+	top:0px;
+	left:50px;
+	width:560px;
+	text-align: left;
+    overflow:hidden;
+    text-overflow:ellipsis;	
+	display: table;
+    margin:0px;
+}
+.commentuserDetailBox {
+    height: 40px;
+    width: 500px;
+    float: right;
+    text-align: left;
+    left: 42px;
+    position: absolute;
+}
+.comment-heading{   
+  background-color:#333;
+  color:#fff;
+  padding:2px;
+  font-weight:bold;
+  text-align: centre;
+ /*  width: 700px; */
+  margin-top:5px;
+  margin-bottom:5px; 
+  font-family: "Times New Roman", Times, serif;
+  font-weight:bold;
+  font-size:22px;
+}
+.commentInputArea {
+ 	 width: 560px;
+    max-width:1000px;
+	
+	resize:none;
+    vertical-align: top;
+    height: 90px;
+    padding: 0px;
+    margin: 0px;
+    top: 1px;
+    font-family: courier;
+}	
+.commentContainer{
+	height:40px;
+	width:700px;
+	
+}
+/*.dateTime{
+	right:0px;
+	width:300px;
+	position: absolute;
+}*/
+.submitButton {
+    float: right;
+    position: absolute;
+    /* left: 620px; */
+    left: 482px;
+    height: 34px;
+    top:5px;
+    width: 80px;
+    margin-top: 2px;
+   	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+	background-color:#d0451b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.postuserheading
+{
+	margin-top:7px;
+ 	width:80px;
+ 	left:0px;
+ 	font-size:20px;
+ 	max-height:100px;
+ 	font-weight:bold;
+ 	color:grey;
+ 	min-height:40px;
+}
+.profilePic {
+	position: absolute;
+	height: 50px;
+    width: 50px;
+    top: 5px;
+	left: 70px;
+
+}
+.userlink{
+  position:absolute;
+  left:130px;
+  width:200px;
+  top:10px;
+	
+}	
+.replyLink
+{
+	width: 70px;
+	position: absolute;
+	height: 30px;
+	left:520px;	
+	text-align: left;	
+}
+
+.deleteLink{
+	width: 20px;
+	position: relative;
+	height: 30px;
+	left:600px;	
+	text-align: right;	
+	margin-top: 25px;
+	display: inline;
+}
+.Numofreply{
+	width: 20px;
+	position: relative;
+	height: 20px;
+	left:600px;	
+	text-align: right;	
+}
+
+.commentBox {
+    height: 94px;
+    width: 500px;
+    padding: 2px;
+    border: 1px solid #D5D5D5;
+    position: absolute;
+    top: 75px;
+    margin: 0px;
+}
+
+.submitComment {
+    height: 34px;
+    width: 500px;
+    position: absolute;
+    top: 175px;
+    margin: 0px;
+    border: 0px;
+}
+
+.loadMore {
+	position: relative;
+	width: 500px;
+	height: 25px;
+	border: 1px solid #D5D5D5;
+	background-color: #D5D5D5;
+	text-align: center;
+ }
+.loadMore:hover {
+	position: relative;
+	width: 500px;
+	height: 25px;
+	border: 1px solid #a8a8a8;
+	background-color: #a8a8a8;
+	text-align: center;
+}
+
+
+
+
+	.submitreply{
+	height: 5px;
+	}
+	
+	
+	.postButton{
+	 float: right;
+    position: absolute;
+    left: 415px;
+    height: 40px;
+    width: 85px;
+    margin: 0px;
+   	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+	background-color:#d0451b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+	}
+	.replyuserDetailBox{
+	height: 20px;
+    width: 200px;  
+    text-align: left;
+    left: auto;
+    position: relative;
+	}
+  .replyInputArea{
+   height: 50px;
+    width: 500px;
+    position:relative; 
+  }
+  
+  .replyContainer {
+	position: relative;
+	/* height: 130px;
+	width: 600px;
+	left: 50px; */
+}
+.replyBox {
+	position: relative;
+	height: 70px;
+	width: 600px;
+	top: 0px;
+	left: 0px;
+	margin-left: 50px;
+	padding: 0px;
+	resize: none;
+}
+.replypostheading{
+   /*left:200px;
+   height:34px;
+   margin-left:350px;
+   width:70px;*/
+   margin-top:7px;
+ 	width:80px;
+ 	left:0px;
+ 	font-size:12px;
+ 	max-height:100px;
+ 	font-weight:bold;
+ 	color:grey;
+ 	min-height:40px;
+   	
+}
+.replyuserlink
+{  left:0px;
+   height:34px;
+   margin-left:0px;
+   position:absolute;
+}
+
+
+.postReply {
+	position: absolute;
+	top: 100px;
+	width: 50px;
+	margin: 0px;
+	left: 550px;
+	border: 1px solid #D5D5D5;
+	background-color: #D5D5D5;
+	text-align: center;
+	color: white; 
+	border-radius: 3px; 
+}
+.postReply:hover {
+	position: absolute;
+	top: 100px;
+	width: 50px;
+	margin: 0px;
+	left: 550px;
+	border: 1px solid #838383;
+	background-color: #838383;
+	text-align: center;
+	color: white;
+	border-radius: 3px; 
+}
+
+.profileName {
+	position: absolute;
+	top: 2px;
+	left: 40px;
+	height: 40px;
+	width: 205px;
+}
+/*
+old one from rating and review 
+*/
+.commentAvatar {
+    height: 40px;
+    width: 37px;
+    vertical-align: top;
+    position: absolute;
+    top: 3px;
+    
+}
+.commentdetailContainer {
+	position: relative;
+	border-top: 1px solid #D5D5D5;
+	/* width: 700px; */
+	min-height: 50px;
+	height:40px;
+	overflow: hidden;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+.replyDetailContainer {
+	position: relative;
+	border-top: 1px solid #D5D5D5;
+	width: 604px;
+	min-height: 50px;
+	height:40px;
+	overflow: hidden;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+.commentuserDetailBox {
+    height: 40px;
+    /* width: 459px; */
+    /* float: right;
+    text-align: left; */
+    left: 42px;
+    position: absolute;
+}
+.dateTime{
+	position: absolute;
+	height: 10px;
+	top: 0px;
+	width: 200px;
+	/* left: 450px; */
+	text-align: right;
+}
+
+.replyDateTime{
+	position: absolute;
+	height: 10px;
+	top: 0px;
+	width: 200px;
+	left: 416px;
+	text-align: center;
+}
+
+.Upvote{
+	height: 40px;
+    width: 80px;
+    float: right;
+    text-align: left;
+    position: absolute;
+}
+.Numofreply{
+	position: absolute;
+	height: 10px;
+	top: 0px;
+	width: 50px;
+	left: 450px;
+	text-align: left;
+}
+
+.repliesdisplay {
+/*	position: relative;
+*/	position: static;
+	height: auto;
+	top:0px;
+	margin-left:100px;
+	width:800px;
+	text-align: left;
+    overflow:hidden;
+    text-overflow:ellipsis;	
+	display: table;
+/*    margin:0px;*/
+}
+
+.commentuserName {
+	margin-left: 50px;
+}

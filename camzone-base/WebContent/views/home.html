@@ -1,0 +1,96 @@
+<div>
+ 
+                          
+                                  <h2 class="pull-left" style="width: 80%; font-weight: bold; color: #9954bb; display: inline-block">We share your best moments with the world</h2>
+                                  <div class="hoverContent" style="display: inline-block; width: 20%;">
+                                  <!-- <h2 style="display: inline; width: 80%; font-weight: bold; color: #9954bb;">We share your best moments with the world</h2> -->
+                                 
+                                  <a id="fb"><img style="width: 43px; margin-right: 20px" class="img img-responsive pull-right" src="http://demo.gigya.com/images/follow_bar/Facebook_on_follow.png"></a>
+                                  <a id="gp"><img style="width: 43px; margin-right: 20px" class="img img-responsive  pull-right" src="http://demo.gigya.com/images/follow_bar/Google+_on_follow.png"></a>
+                                 
+                                 
+                                  <div class="tooltip">
+                                         <div class="fb-like-box"
+                                                data-href="https://www.facebook.com/pages/Cynargy-World/1502882123299953"
+                                                data-colorscheme="light" data-show-faces="true"
+                                                data-header="false" data-stream="false" data-show-border="true"
+                                                data-width="350">
+                                         </div>
+                                  </div>
+                                 
+                                 
+                                  <!-- <a id="gp"><img style="width: 43px; margin-right: 20px" class="img img-responsive  pull-right" src="http://demo.gigya.com/images/follow_bar/Google+_on_follow.png"></a> -->
+                                 
+                           </div>
+                          
+ 
+ 
+ 
+                                        
+                                        
+                                 
+                                        
+                                        
+                                 
+                          
+</div>
+ 
+ 
+<!-- Carousel  ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#myCarousel" ng-repeat="img in images" class="{active : (img.background == 'pic-1.jpg')}" data-slide-to="{{img.number}}"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div ng-class="{item: true, imgClass :true ,active : (img.background == 'pic-1.jpg')}" ng-repeat="img in images">
+              <img ng-src="images/corousel/{{img.background}}" class="img-responsive"style="height:100%;width : 100%" alt="Slide numder {{img.number}}">
+        </div>
+      </div>
+      <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+</div>
+    <!-- /.carousel -->
+<div class="container">
+       <div class="col-md-8">
+              <h1 class="page-header" style="line-height: 1em; font-size: 3.7em; color: #000">
+                                  Capture. Connect. Share.</h1>
+       </div>
+ 
+<div class="row">
+ 
+       <div class="col-md-8">
+              <h3><a href="#categories/Camera" >Cameras</a></h3>
+              <div class="col-md-4 text-center" ng-repeat="product in products">
+                     <div class="thumbnail">
+                           <img class="img-responsive portfolio-cannon" src="images/product/{{product.name}}.png " alt="">
+                                  <div class="caption">
+                                         <h3>
+                                                <b><a href="#/categories/Camera">{{product.name}}</a></b>
+                                         </h3>
+                                         <p>{{product.description}}</p>
+                                  </div>
+                     </div>
+              </div>
+              <h3><a href="#categories/cameraAccesories" >Camera Accesories</a></h3>
+              <div class="col-md-4 text-center" ng-repeat="product in accessories">
+                     <div class="thumbnail">
+                           <img class="img-responsive portfolio-cannon" src="images/product/{{product.image}}" alt="">
+                                  <div class="caption">
+                                         <h3>
+                                                <b><a href="#cameraAccesories/{{product.name}}">{{product.name}}</a></b>
+                                         </h3>
+                                         <p>{{product.description}}</p>
+                                  </div>
+                     </div>
+              </div>
+       </div>
+</div>
+ 
+ 
+ 
+</div>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cassandra="http://www.springframework.org/schema/data/cassandra"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/cql http://www.springframework.org/schema/cql/spring-cql-1.0.xsd
+    http://www.springframework.org/schema/data/cassandra http://www.springframework.org/schema/data/cassandra/spring-cassandra-1.0.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+<context:component-scan base-package="com.aricent" />
+
+  <!-- Loads the properties into the Spring Context and uses them to fill
+    in placeholders in the bean definitions -->
+  <context:property-placeholder location="/WEB-INF/cassandra.properties" />
+
+  <!-- REQUIRED: The Cassandra Cluster -->
+  <cassandra:cluster contact-points="${cassandra.contactpoints}"
+    port="${cassandra.port}" />
+
+  <!-- REQUIRED: The Cassandra Session, built from the Cluster, and attaching
+    to a keyspace -->
+  <cassandra:session keyspace-name="${cassandra.keyspace}" />
+
+  <!-- REQUIRED: The Default Cassandra Mapping Context used by CassandraConverter -->
+  <cassandra:mapping />
+
+  <!-- REQUIRED: The Default Cassandra Converter used by CassandraTemplate -->
+  <cassandra:converter />
+
+  <bean id="cassandraTemplate" class="org.springframework.cassandra.core.CqlTemplate">
+		 <constructor-arg ref="cassandraSession" />
+	</bean>
+  <bean id="oUserTransaction" class="com.aricent.transaction.impl.UserTransactionImpl" init-method="init"/>
+  <bean id="oRuleEngineImpl" class="com.aricent.gamification.RuleEngineImpl" init-method="init"/>
+  <bean id="oReactProcessorImpl" class="com.aricent.plugin.reaction.ReactionProcessorImpl" init-method="init"/>
+  <bean id="oProductTransaction" class="com.aricent.transaction.impl.ProductTransactionImpl" init-method="init"/>
+</beans>

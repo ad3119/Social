@@ -1,0 +1,82 @@
+<!--<div ng-include="'nav.html'"></div>-->
+
+  <!--  <div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-danger" role="alert">
+				<h4>
+					<i class="fa fa-user"></i>&nbsp;&nbsp;<span ng-bind="user.name"></span>
+					<button class="btn btn-warning btn-xs" ng-click="logout()">Logout</button>
+				</h4>
+			</div>
+		</div>
+	</div> -->
+<style>
+
+
+section {
+  width: 360px;
+  background: #ecf0f1;
+  padding: 0 30px 30px 30px;
+  margin: 60px auto;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.dotspan {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  top: -40px;
+  height: 40px;
+  width: 80px;
+  
+  border-radius: 50%;
+  
+}
+</style>
+<div class="well">
+    <div class="row">
+		<div class="col-md-8">
+			<h4><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Available Executives</h4>
+			<div ng-repeat="user in users">
+				<span ng-bind="user.name"></span>
+				<span class="badge"><span ng-bind="user.drivnmbr"></span>&nbsp;|&nbsp;<span ng-bind="user.cabnmbr"></span>&nbsp;|&nbsp;<span ng-bind="user.loc"></span></span>
+				<button class="btn btn-link" ng-show="user.isConnected!=true" ng-click="call(user.easyRtcId)">Connect</button>
+				<button class="btn btn-link" ng-show="user.isConnected==true" ng-click="hangup(user.easyRtcId)">Disconnect</button>
+				<!--<div ng-show="user.isConnected==true">
+					<form class="form-inline">
+					  <div class="form-group">
+						<div class="input-group">
+						  <div class="input-group-addon"><i class="fa fa-file-text-o"></i></div>
+						  <input type="text" ng-bind="txtMsg" class="form-control" id="txtMsg" placeholder="Enter Message"/>
+						</div>
+					  </div>
+					  <button type="submit" ng-click="sendMsg(user.name)" class="btn btn-primary btn-sm">Send</button>
+					</form>
+				</div>-->
+			</div>
+		</div>
+    </div>
+</div>
+<div class="well">
+    <div class="row">
+        <div class="col-md-5">
+			<h3>You</h3>
+            <video autoplay="autoplay" class="easyrtcMirror" id="selfVideo" muted="muted" volume="0" ></video>
+        </div>
+        <div class="col-md-5 col-md-offset-2">
+			<h3>Executive</h3>
+            <video autoplay="autoplay" id="callerVideo" class="pull-right"></video>
+        </div>
+    </div>
+</div>
+<!--<div class="well">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<h3><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Driver Locations</h3><br/>
+			<div id="chart_div"></div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>-->

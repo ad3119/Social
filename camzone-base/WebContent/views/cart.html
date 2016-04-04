@@ -1,0 +1,115 @@
+<style>
+.cartTable img {
+	widdiv: 50px; 
+	height: 50px; 
+	position: relative;
+}
+.thumbnail p {
+	color: #000;
+  font-weight: 500;
+  
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  font-size: 13px;
+  -webkit-box-orient: vertical;
+  }
+.thumbnail {
+  min-height: 291px;
+  max-height: 291px;
+  overflow: auto;
+  cursor:pointer;
+}
+.thumbnail:hover {
+
+border: 2px solid grey
+}
+.thumbnail img {
+margin-top : 10px;
+min-height : 120px;
+width : 120px
+}
+
+</style>
+<div>
+<legend class="text-success"> Your Cart</legend>
+</div>
+<div class="well">
+	<div>There are {{cartListLength}} item(s) in the cart
+	<a style="margin-top:-10px"href="#/categories/Camera" class="btn btn-primary pull-right">Continue Shopping</a>
+	</div>
+</div>
+
+
+<table class="table cartTable">
+	<thead>
+		<tr>
+			<th>Image</th>
+			<th>Product</th>
+			<th>Qty</th>
+			<th>Unit Price</th>
+			<th>Total Price</th>
+		</tr>
+	</thead>
+	<tbody ng-if ="cartItemsPresent">
+		<tr ng-repeat="cartItem in cartList">
+			<td><img alt="" src="camera_images/{{cartItem.productId}}.png"></td>
+			<td><a href="" ng-click="clickedProduct(cartItem)"> {{cartItem.product}}</a></td>
+			<td>{{cartItem.quantity}}</td>
+			<td><i class="fa fa-inr lg"></i>{{cartItem.price}}</td>
+			<td><i class="fa fa-inr lg"></i>{{cartItem.price * cartItem.quantity}}</td>
+			<td><a href=""><i class="fa fa-remove lg" title="Remove from cart" ng-click="removeFromCart(cartItem)"></i></a></td>
+		</tr>
+	</tbody>
+	<tbody ng-if="!cartItemsPresent">
+		<tr><td>Please login to see your cart items / There are no items in the cart , Please add <a href="#home">some</a></td></tr>
+	</tbody>
+</table>
+
+<div  ng-if="cartItemsPresent" class="col-lg-12 col-md-12">
+	<h4 class="page-header">
+		<b>In Others Cart</b>
+	</h4>
+</div>
+<div ng-if="cartItemsPresent" class="row">
+<div  style= " margin-top: 90px;"class="col-md-1"><a  ng-click="prevPage()"  href=""><i class="fa fa-angle-left fa-5x"></i></a></div>
+	<div class="col-md-3 text-center" ng-repeat="product in recommendedFromCart | offset: currentPage*itemsPerPage |limitTo: itemsPerPage">
+		<div class="thumbnail" ng-click="clickedProduct(product)">
+			<img class="img-responsive portfolio-cannon"
+				src="camera_images/{{product.id}}.png" alt="">
+			<div class="caption">
+
+				<p>{{product.productName}}</p>
+
+				<!-- <p>{{product.description}}</p> -->
+				<h2 class="bg-primary">
+					<i class="fa fa-inr lg"></i>{{product.price}}
+				</h2>
+			</div>
+		</div>
+	</div>
+<div style= "margin-top: 90px;"class="col-md-1"><a  ng-click="nextPage()"  href=""><i class="fa fa-angle-right fa-5x"></i></a></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

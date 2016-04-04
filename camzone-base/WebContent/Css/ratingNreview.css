@@ -1,0 +1,241 @@
+.showRateComntsBox {
+    height: 234px;
+    width: 500px;
+    position: relative;
+    margin-top: 30px;
+}
+.reviewAvatar {
+    height: 37px;
+    width: 37px;
+    vertical-align: top;
+    position: absolute;
+    top: 3px;
+}
+.userDetailBox {
+    height: 40px;
+    width: 459px;
+    float: right;
+    text-align: left;
+    left: 45px;
+    position: absolute;
+    top:0px;
+}
+.userName {
+    position: absolute;
+    left: 5px;
+}
+.starRate, .userRating {
+    display: inline-block;
+    height: 37px;
+    width: 459px;
+    position: absolute;
+    top: 20px;
+}
+.titleBox {
+    height: 24px;
+    width: 500px;
+    padding: 2px;
+    border: 1px solid #D5D5D5;
+    position: absolute;
+    top: 45px;
+    margin: 0px;
+    border-radius: 5px;
+}
+.titleInput {
+    width: 495px;
+    border: medium none;
+    font-family: courier;
+    position: absolute;
+    height: 22px;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+.reviewBox {
+    height: 94px;
+    width: 500px;
+    padding: 2px;
+    border: 1px solid #D5D5D5;
+    position: absolute;
+    top: 75px;
+    margin: 0px;
+    border-radius: 5px; 
+}
+.reviewInput {
+    width: 495px;
+    border: medium none;
+    vertical-align: top;
+    position: absolute;
+    height: 90px;
+    padding: 0px;
+    margin: 0px;
+    top: 1px;
+    font-family: courier;
+    color: black;
+}
+.postBox {
+    height: 34px;
+    width: 500px;
+    position: absolute;
+    top: 175px;
+    margin: 0px;
+    border: 0px;
+}
+.postButton {
+    float: right;
+    position: absolute;
+    left: 415px;
+    height: 34px;
+    width: 85px;
+    margin: 0px;
+    border: 0px none;
+    top: 0px;
+}
+.postButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+	background-color:#d0451b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.postButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+	background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+	background-color:#bc3315;
+}
+.postButton:active {
+	top:1px;
+	float: right;
+    position: absolute;
+    left: 415px;
+    height: 34px;
+    width: 85px;
+    margin: 0px;
+    border: 0px none;
+    top: 0px;
+}
+.showOverallRating {
+	position: relative;
+	width: 500px;
+	height: 24px;
+	margin-bottom:10px;
+}
+.ratingText {
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	margin: 0px;
+	border: 0px;
+}
+.OverallRating {
+	position: absolute;
+	left: 110px;
+	top: 2px;
+	margin: 0px;
+	border: 0px;
+}
+.numReviews {
+	position: absolute;
+	left: 230px;
+	top: 4px;
+	border: 0px;
+}
+.showUserRating{
+	width: 500px;
+    position: relative;
+	height: 100%;
+	border-top: 1px solid #D5D5D5;
+}
+.reviewContainer {
+	margin-top:10px;
+	position: relative;
+	/*border-bottom: 1px solid #D5D5D5;*/
+	width: 515px;
+	height: 150px;
+	-moz-box-shadow:    3px 3px #ccc;
+    -webkit-box-shadow: 3px 3px #ccc;
+    box-shadow:         2px 3px 2px 2px #ccc;
+    border-radius:5px;
+}
+
+
+
+.reviewContainer>img {
+	margin: 5px 0 0 5px;
+	padding: 5px 0 0 5px;
+}
+
+.dateTime {
+	position: absolute;
+	height: 40px;
+	top: 0px;
+	width: 200px;
+	right: 0px;
+	text-align: right;
+}
+.reviewComment {
+	position: absolute;
+	top:55px;
+	left:10px;
+	width:460px;
+	height:107px;
+	overflow-y:auto;
+}
+.loadMore {
+	margin-top:15px;
+	position: relative;
+	width: 515px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #F9F8F6;
+	text-align: center;
+ }
+ 
+ .loadMore > a{
+ 	font-weight:bold;
+ 	line-height:30px;
+ }
+ 
+ .loadMore > a:hover{
+	text-decoration:underline;
+} 
+.postErrorBox {
+	position: absolute;
+	left: 0px;
+	text-align: center;
+	top: 0px;
+	width: 410px;
+	height: 34px;
+	color: red;
+	border: 1px solid red;
+	visibility: hidden;
+}
+.commentShare {
+	position: absolute;
+	left: 2px;
+	top: 118px;
+}

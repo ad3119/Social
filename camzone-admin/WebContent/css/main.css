@@ -1,0 +1,28 @@
+.btn {
+	margin-right:5px;
+	margin-top:5px;
+}
+hr {
+	border-bottom: 1px solid silver;
+}
+.danger {
+	color:red;
+}
+kbd {
+	border:1px solid black;
+	border-radius: 5px;
+	color:#FFF;
+	background-color: black;
+}
+.pointerClass{
+	cursor:pointer;
+}
+.preview {
+	border: 1px solid silver;
+	max-height: 70%;
+	overflow: auto;
+}
+.glyphicon {
+    cursor: pointer;
+    margin: 0 5px;
+}

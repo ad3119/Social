@@ -1,0 +1,149 @@
+.btn {
+       margin-right:5px;
+       margin-top:5px;
+}
+hr {
+       border-bottom: 1px solid silver;
+}
+.danger {
+       color:red;
+}
+kbd {
+       border:1px solid black;
+       border-radius: 5px;
+       color:#FFF;
+       background-color: black;
+}
+.pointerClass{
+       cursor:pointer;
+}
+.preview {
+       border: 1px solid silver;
+       max-height: 70%;
+       overflow: auto;
+}
+.glyphicon {
+    cursor: pointer;
+    margin: 0 5px;
+}
+ 
+.ulreact {
+       list-style: none;
+}
+ 
+.ulreact>li {
+       display: inline;
+       height:50px;
+}
+ 
+.ulreact>li>a {
+       text-decoration: none;
+       color: #000;
+}
+ 
+.ulreact>li>a>label {
+       padding: 12px;
+}
+.memberdispl {
+       min-height:105px
+}
+.hoverContent {
+       margin-top: 15px;
+       /* margin-left: 20px;
+       height: 50px;  */
+}
+.tooltip {
+       top: 70px;
+       border: 2px solid #ccc;
+       left: 650px;
+       display: none;
+       background-color: white;
+       border-radius: 5px;
+       opacity: 0;
+       position: absolute;
+       -webkit-transition: opacity 0.5s;
+       -moz-transition: opacity 0.5s;
+       -ms-transition: opacity 0.5s;
+       -o-transition: opacity 0.5s;
+       transition: opacity 0.5s;
+       border: 2px solid #ccc;
+}
+ 
+.hoverContent:hover .tooltip {
+       display: inline;
+       opacity: 1;
+}
+ 
+ 
+.hidden {
+       display: none;
+}
+ 
+.imgClass {
+       position: absolute;
+       top: 0;
+       left: 0;
+       min-width: 100%;
+       height: 400px;
+}
+ 
+.thumbnail {
+       min-height: 400px;
+}
+.roundCorner {
+border:2px solid black;
+border-radius: 5px;
+}
+.handCursor {
+       cursor: pointer;
+}
+ 
+.userActivity {
+       margin-bottom: 10px;
+       border-bottom: 1px solid #ccc;
+}
+ 
+.userActivity img {
+       float: left;
+}
+ 
+.userActivity p {
+       display: inline;
+       margin-left: 3px;
+}
+ 
+.userActivity span {
+       text-align: justify;
+       margin-left: 3px;
+}
+ 
+.hovershare {
+       position: relative;
+       top: -10px;
+       left: 10px;
+}
+.hovershare:hover .sharetool {
+       opacity: 1;
+}
+ 
+.sharetool {
+       top: -15px;
+       left: 22px;
+       color: white;
+       border-radius: 5px;
+       opacity: 0;
+       position: absolute;
+       -webkit-transition: opacity 0.5s;
+       -moz-transition: opacity 0.5s;
+       -ms-transition: opacity 0.5s;
+       -o-transition: opacity 0.5s;
+       transition: opacity 0.5s;
+}
+ 
+.popover.bottom .arrow:after {
+    border-bottom-color: tomato;
+}
+ 
+.panel-heading {
+       cursor:move;
+}

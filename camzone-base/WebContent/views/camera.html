@@ -1,0 +1,69 @@
+<style>
+.thumbnail p {
+	color: #000;
+  font-weight: 500;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  font-size: 13px;
+  -webkit-box-orient: vertical;
+  }
+.thumbnail {
+  min-height: 291px;
+  max-height: 291px;
+  overflow: auto;
+  cursor:pointer;
+}
+.thumbnail:hover {
+
+border: 2px solid grey
+}
+.thumbnail img {
+margin-top : 10px;
+min-height : 120px;
+width : 120px
+}
+
+</style><div class="row">
+			<div class="col-md-12">
+				<h1 class="page-header">Camera</h1>
+				<ol class="breadcrumb">
+					<li><a href="#home">Home</a></li>
+					<li class="active">Category: Camera</li>
+				</ol>
+			</div>
+		</div>
+		
+		<div class="input-group input-group-md">
+  			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+  			<input  ng-model = "searchText" type="text" class="form-control" placeholder="Search Camera..." aria-describedby="sizing-addon1">
+		</div>
+		
+		
+		
+		<!-- <div class="form-group">
+    		<label class="text-success"for="exampleInputName2">Search :</label>
+    		<input ng-model = "searchText" type="search" class="form-control" id="exampleInputName2" placeholder="Start searching your camera...">
+  		</div> -->
+		<div style ="margin-top: 20px" class="col-md-4 text-center" ng-repeat="product in products | filter:searchText| offset: currentPage*itemsPerPage |
+        limitTo: itemsPerPage">
+			<div class="thumbnail" ng-click="clickedProduct(product)">
+				<img class="img-responsive portfolio-cannon" src="camera_images/{{product.id}}.png" alt="">
+					<div class="caption">
+						<p>
+							{{product.productName}}
+						</p>
+						<p>{{product.description}}</p>
+						<h3 class="bg-primary"><i class="fa fa-inr lg"></i>{{product.price}}</h3>
+					</div>
+			</div>
+		</div>
+		
+          <nav>
+  <ul class="pager">
+    <li  ng-class="prevPageDisabled()" class="previous"><a ng-click="prevPage()"  href=""><span aria-hidden="true">&larr;</span> Prev</a></li>
+    <li  ng-class="nextPageDisabled()" class="next"><a  href=""ng-click="nextPage()">Next <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
